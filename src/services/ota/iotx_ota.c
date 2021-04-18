@@ -720,7 +720,7 @@ int IOT_OTA_FetchYield(void *handle, char *buf, uint32_t buf_len, uint32_t timeo
     }
 
     otalib_MD5Update(h_ota->md5, buf, ret);
-    otalib_Sha256Update(h_ota->sha256, buf, ret);
+    //iotalib_Sha256Update(h_ota->sha256, buf, ret); //平台采用MD5,如果这里用这句话,就会爆栈,修改后要编译SDK
     h_ota->size_last_fetched = ret;
     h_ota->size_fetched += ret;
 
